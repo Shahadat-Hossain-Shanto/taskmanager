@@ -118,6 +118,14 @@
                 <i class="bi bi-check-circle me-2"></i> Submit
             </button>
         </div>
+
+        <!-- README Button -->
+        <div class="text-center mt-4">
+            <a href="{{ route('readme') }}"
+            class="btn btn-dark btn-lg">
+                <i class="bi bi-book me-2"></i> View README
+            </a>
+        </div>
     </form>
 </div>
 

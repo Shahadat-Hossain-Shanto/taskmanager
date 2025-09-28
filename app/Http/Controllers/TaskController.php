@@ -131,6 +131,9 @@ class TaskController extends Controller
         ], 200);
     }
 
-
+    public function readme()
+    {
+        return view('readme');
+    }
 
 }
