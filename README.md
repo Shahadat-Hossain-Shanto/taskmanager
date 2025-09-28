@@ -1,61 +1,178 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management - README</title>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+    {{-- Bootstrap 5 CDN --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-## About Laravel
+    {{-- Bootstrap Icons CDN --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+    <style>
+        body {
+            background: #f4f7fb;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            border-radius: 18px;
+            border: none;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+        }
+        h1 {
+            color: #0d6efd;
+        }
+        h2 {
+            color: #495057;
+            border-left: 5px solid #0d6efd;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        pre {
+            background: #1e293b;
+            color: #f8f9fa;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            overflow-x: auto;
+        }
+        code {
+            color: #3d00d7;
+        }
+        .section-divider {
+            border-top: 2px dashed #dee2e6;
+            margin: 30px 0;
+        }
+        .btn-outline-primary {
+            border-radius: 30px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <div class="card shadow-lg">
+        <div class="card-body p-5">
+            <h1 class="mb-4 text-center"><i class="bi bi-journal-code"></i> Task Management - README</h1>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+            {{-- Setup Section --}}
+            <h2>⚙️ Setup</h2>
+            <ul>
+                <li>Clone the repository: <code>git clone https://github.com/Shahadat-Hossain-Shanto/taskmanager.git</code></li>
+                <li>Install dependencies: <code>composer install</code></li>
+                <li>Copy environment file: <code>cp .env.example .env</code></li>
+                <li>Generate app key: <code>php artisan key:generate</code></li>
+                <li>Configure DB in <code>.env</code></li>
+                <li>Run migrations: <code>php artisan migrate</code></li>
+                <li>Serve the app: <code>php artisan serve</code></li>
+            </ul>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+            <div class="section-divider"></div>
 
-## Learning Laravel
+            {{-- Architecture Section --}}
+            <h2>🏗️ Architecture</h2>
+            <p>This is a Laravel 12 project following MVC architecture:</p>
+            <ul>
+                <li><strong>Models</strong>: <code>App\Models\Task</code> for database interaction</li>
+                <li><strong>Controllers</strong>: <code>App\Http\Controllers\TaskController</code> handles task logic</li>
+                <li><strong>Routes</strong>: Defined in <code>routes/api.php</code> and <code>routes/web.php</code></li>
+                <li><strong>Views</strong>: Blade templates for frontend (Bootstrap 5)</li>
+                <li><strong>Database</strong>: MySQL with tasks table</li>
+            </ul>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+            <div class="section-divider"></div>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+            {{-- Scalability Section --}}
+            <h2>🚀 Scalability</h2>
+            <ul>
+                <li>API supports bulk task insertion</li>
+                <li>Validation layer ensures data consistency</li>
+                <li>Rate limiting applied with <code>throttle</code> middleware</li>
+                <li>Stateless API with token-based Authorization</li>
+                <li>Future-ready for horizontal scaling with Redis queues + load balancers</li>
+            </ul>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+            <div class="section-divider"></div>
 
-## Laravel Sponsors
+            {{-- API Documentation --}}
+            <h2>📡 API Documentation</h2>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+            <h3>🔹 Create Tasks API</h3>
+            <p><strong>Endpoint:</strong> <code>POST /api/task-store</code></p>
 
-### Premium Partners
+            <h4>Headers:</h4>
+            <pre><code>Authorization: hT9vXb2qLr8YnZp5S1QwKg==
+Content-Type: application/json
+Accept: application/json</code></pre>
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+            <h4>Request Body:</h4>
+            <pre><code>{
+    "tasks": [
+        {
+            "title": "Finish API documentation",
+            "description": "Complete the API documentation for Task management",
+            "due_date": "2025-10-01",
+            "status": 1
+        },
+        {
+            "title": "Setup frontend integration",
+            "due_date": "2025-10-05",
+            "status": 0
+        }
+    ]
+}</code></pre>
 
-## Contributing
+            <h4>✅ Success Response:</h4>
+            <pre><code>{
+    "status": 200,
+    "message": "Tasks created successfully.",
+    "data": [
+        {
+            "title": "Finish API documentation",
+            "due_date": "2025-10-01",
+            "status": 1
+        },
+        {
+            "title": "Setup frontend integration",
+            "due_date": "2025-10-05",
+            "status": 0
+        }
+    ]
+}</code></pre>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+            <h4>❌ Validation Error Response:</h4>
+            <pre><code>{
+    "status": 422,
+    "message": "Validation Error",
+    "errors": {
+        "tasks.0.title": ["The title field is required."],
+        "tasks.1.due_date": ["The due date field is required."]
+    }
+}</code></pre>
 
-## Code of Conduct
+            <h4>🔒 Unauthorized Response:</h4>
+            <pre><code>{
+    "status": 400,
+    "message": "Unauthorized Access"
+}</code></pre>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+            <div class="text-center mt-5">
+                <a href="{{ url('/') }}" class="btn btn-outline-primary px-4 py-2">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Go Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+{{-- Bootstrap JS --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
