@@ -4,7 +4,7 @@
 
 Clone the repository:
 
-**bash**
+bash: 
 git clone https://github.com/Shahadat-Hossain-Shanto/taskmanager.git
 
 Install dependencies:  composer install
