@@ -23,10 +23,10 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             transition: all 0.3s;
         }
-        .task-item:hover {
+        /* .task-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-        }
+        } */
         .btn-add-task {
             background-color: #fff;
             border: 2px dashed #0d6efd;
@@ -46,7 +46,10 @@
 
 <div class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-primary mb-0">Create Tasks</h2>
+        <h2 class="mb-0 fw-bold" style="background: linear-gradient(90deg, #0d6efd, #6f42c1); -webkit-background-clip: text; color: transparent;">
+            <i class="bi bi-list-check me-2"></i> Create Tasks
+        </h2>
+
         <a href="{{ route('tasks.list') }}" class="btn btn-success btn-lg">
             <i class="bi bi-list me-2"></i> Task List
         </a>

@@ -35,7 +35,6 @@
         </div>
 
         <div class="card-body">
-            {{-- Success Message --}}
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
@@ -43,7 +42,6 @@
                 </div>
             @endif
 
-            {{-- Task Table --}}
             <div class="table-responsive">
                 <table id="taskTable" class="table table-bordered table-striped table-hover dt-responsive nowrap" style="width:100%">
                     <thead class="table-light">
@@ -52,8 +50,8 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>Due Date</th>
+                            <th>Task Created On</th>
                             <th>Status</th>
-                            <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -111,6 +109,7 @@
                 { data: 'title' },
                 { data: 'description' },
                 { data: 'due_date' },
+                { data: 'created_at', render: d => new Date(d).toLocaleString() },
                 {
                     data: 'status',
                     render: status => {
@@ -122,7 +121,6 @@
                         }
                     }
                 },
-                { data: 'created_at', render: d => new Date(d).toLocaleString() },
                 {
                     data: null,
                     render: row => `
@@ -145,7 +143,6 @@
             paging: true
         });
 
-        // Open modal to edit status
         $('#taskTable').on('click', '.edit-status-btn', function() {
             const taskId = $(this).data('id');
             const status = $(this).data('status');
@@ -155,7 +152,6 @@
             new bootstrap.Modal(document.getElementById('editStatusModal')).show();
         });
 
-        // Submit status update via AJAX
         $('#editStatusForm').submit(function(e) {
             e.preventDefault();
             const taskId = $('#task_id').val();
@@ -168,7 +164,7 @@
                 success: function() {
                     const modalEl = document.getElementById('editStatusModal');
                     bootstrap.Modal.getInstance(modalEl).hide();
-                    table.ajax.reload(null, false); // reload data without resetting pagination
+                    table.ajax.reload(null, false);
                     $('<div class="alert alert-success alert-dismissible fade show mt-2">Task status updated successfully!<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>').prependTo('.card-body').delay(3000).fadeOut(500, function(){ $(this).remove(); });
                 },
                 error: function() {
